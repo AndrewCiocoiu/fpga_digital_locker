@@ -1,0 +1,22 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_top_module_behav xil_defaultlib.tb_top_module -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.clk_div [clk_div_default]
+Compiling architecture behavioral of entity xil_defaultlib.debouncer [debouncer_default]
+Compiling architecture behavioral of entity xil_defaultlib.keypad_scanner [keypad_scanner_default]
+Compiling architecture behavioral of entity xil_defaultlib.display_driver [display_driver_default]
+Compiling architecture behavioral of entity xil_defaultlib.main_fsm [main_fsm_default]
+Compiling architecture structural of entity xil_defaultlib.top_module [top_module_default]
+Compiling architecture behavioral of entity xil_defaultlib.tb_top_module
+Built simulation snapshot tb_top_module_behav
