@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Fri May  8 13:59:43 2026
+| Date         : Fri May  8 14:12:14 2026
 | Host         : yoshi running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_module_control_sets_placed.rpt
 | Design       : top_module
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    19 |
-|    Minimum number of control sets                        |    19 |
+| Total control sets                                       |    22 |
+|    Minimum number of control sets                        |    22 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    46 |
+| Unused register locations in slices containing registers |    58 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    19 |
-| >= 0 to < 4        |     2 |
-| >= 4 to < 6        |     6 |
+| Total control sets |    22 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     7 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
-| >= 14 to < 16      |     1 |
-| >= 16              |     9 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    11 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -59,39 +59,42 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               4 |            3 |
-| No           | No                    | Yes                    |              33 |           12 |
+| No           | No                    | Yes                    |              30 |            9 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              25 |            7 |
-| Yes          | No                    | Yes                    |             141 |           46 |
-| Yes          | Yes                   | No                     |              15 |            5 |
+| Yes          | No                    | No                     |              26 |           10 |
+| Yes          | No                    | Yes                    |             171 |           54 |
+| Yes          | Yes                   | No                     |              31 |            8 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------+-------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
-|      Clock Signal     |                  Enable Signal                  |           Set/Reset Signal           | Slice Load Count | Bel Load Count | Bels / Slice |
-+-----------------------+-------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/led_access_i_1_n_0                     | reset_IBUF                           |                1 |              1 |         1.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/led_alarm_i_1_n_0                      | reset_IBUF                           |                1 |              1 |         1.00 |
-|  clk_100MHz_IBUF_BUFG |                                                 |                                      |                3 |              4 |         1.33 |
-|  clk_100MHz_IBUF_BUFG | Inst_Keypad/Col[3]_i_1_n_0                      | reset_IBUF                           |                1 |              4 |         4.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_Keypad/key_value[3]_i_1_n_0                | reset_IBUF                           |                1 |              4 |         4.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_Keypad/temp_key_val0                       |                                      |                1 |              4 |         4.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_Keypad/delay_count[4]_i_1_n_0              | reset_IBUF                           |                2 |              5 |         2.50 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/p_0_in_4                               |                                      |                2 |              5 |         2.50 |
-|  clk_100MHz_IBUF_BUFG | Inst_Keypad/FSM_onehot_current_state[6]_i_1_n_0 | reset_IBUF                           |                3 |              7 |         2.33 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/timeout_counter[14]_i_2_n_0            | Inst_FSM/timeout_counter[14]_i_1_n_0 |                5 |             15 |         3.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/current_input[15]_i_1_n_0              | reset_IBUF                           |                5 |             16 |         3.20 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[0][15]_i_1_n_0               | reset_IBUF                           |                4 |             16 |         4.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/setup_memory0                          |                                      |                4 |             16 |         4.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[3]_1[0]                      | reset_IBUF                           |                3 |             16 |         5.33 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[2]_2[0]                      | reset_IBUF                           |                6 |             16 |         2.67 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[1]_3[0]                      | reset_IBUF                           |                4 |             16 |         4.00 |
-|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[4]_0[0]                      | reset_IBUF                           |                6 |             16 |         2.67 |
-|  clk_100MHz_IBUF_BUFG | Inst_Clock_Divider/w_1kHz_tick                  | reset_IBUF                           |                9 |             23 |         2.56 |
-|  clk_100MHz_IBUF_BUFG |                                                 | reset_IBUF                           |               12 |             33 |         2.75 |
-+-----------------------+-------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
++-----------------------+--------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
+|      Clock Signal     |                   Enable Signal                  |           Set/Reset Signal           | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------+--------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/timeout_counter0                        |                                      |                1 |              1 |         1.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/led_alarm_i_1_n_0                       | reset_IBUF                           |                1 |              1 |         1.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/led_access_i_1_n_0                      | reset_IBUF                           |                1 |              1 |         1.00 |
+|  clk_100MHz_IBUF_BUFG |                                                  |                                      |                3 |              4 |         1.33 |
+|  clk_100MHz_IBUF_BUFG | Inst_Keypad/Col[3]_i_1_n_0                       | reset_IBUF                           |                1 |              4 |         4.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_Keypad/temp_key_val0                        |                                      |                3 |              4 |         1.33 |
+|  clk_100MHz_IBUF_BUFG | Inst_Keypad/key_value[3]_i_1_n_0                 | reset_IBUF                           |                1 |              4 |         4.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/FSM_sequential_current_state[3]_i_1_n_0 | reset_IBUF                           |                3 |              4 |         1.33 |
+|  clk_100MHz_IBUF_BUFG | Inst_Keypad/delay_count[4]_i_1_n_0               | reset_IBUF                           |                2 |              5 |         2.50 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/p_0_in                                  |                                      |                2 |              5 |         2.50 |
+|  clk_100MHz_IBUF_BUFG | Inst_Keypad/FSM_onehot_current_state[6]_i_1_n_0  | reset_IBUF                           |                2 |              7 |         3.50 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/setup_memory0                           |                                      |                4 |             16 |         4.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/current_input[15]_i_1_n_0               | reset_IBUF                           |                7 |             16 |         2.29 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[0][15]_i_1_n_0                | reset_IBUF                           |                4 |             16 |         4.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[3]_2[0]                       | reset_IBUF                           |                4 |             16 |         4.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[1]_4[0]                       | reset_IBUF                           |                4 |             16 |         4.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[2]_3[0]                       | reset_IBUF                           |                5 |             16 |         3.20 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/user_pins[4]_1[0]                       | reset_IBUF                           |                4 |             16 |         4.00 |
+|  clk_100MHz_IBUF_BUFG | Inst_Clock_Divider/w_1kHz_tick                   | reset_IBUF                           |                6 |             23 |         3.83 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/alarm_duration_0[0]                     | reset_IBUF                           |                9 |             26 |         2.89 |
+|  clk_100MHz_IBUF_BUFG |                                                  | reset_IBUF                           |                9 |             30 |         3.33 |
+|  clk_100MHz_IBUF_BUFG | Inst_FSM/timeout_counter0                        | Inst_FSM/timeout_counter[31]_i_1_n_0 |                8 |             31 |         3.88 |
++-----------------------+--------------------------------------------------+--------------------------------------+------------------+----------------+--------------+
 
 
