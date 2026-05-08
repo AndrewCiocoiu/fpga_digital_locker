@@ -57,6 +57,8 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.usePosixSpawnForFork 1
+set_param chipscope.maxJobs 5
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -92,6 +94,8 @@ read_xdc C:/Users/cioco/Desktop/dsd/Nexys-4-DDR-Master.xdc
 set_property used_in_implementation false [get_files C:/Users/cioco/Desktop/dsd/Nexys-4-DDR-Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/cioco/Documents/locker/locker.srcs/utils_1/imports/synth_1/top_module.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
